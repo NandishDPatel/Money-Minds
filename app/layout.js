@@ -1,3 +1,10 @@
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 import {  Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -10,12 +17,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
         className={`${outfitFont.className} antialiased`}
       >
+         <SignedOut>
+            {/* <SignInButton /> */}
+          </SignedOut>
+          <SignedIn>
+            {/* <UserButton /> */}
+          </SignedIn>
         {children}
       </body>
     </html>
+    </ClerkProvider>
   );
 }
