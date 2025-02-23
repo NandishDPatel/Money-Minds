@@ -4,8 +4,7 @@ import React from 'react'
 const Dashboard = () => {
   return (
     <div>
-      {/* <UserButton/>/ */}
-      dashboard
+      Dashboard
     </div>
   )
 }
