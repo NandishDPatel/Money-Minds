@@ -7,6 +7,7 @@ import {
 } from '@clerk/nextjs'
 import {  Outfit } from "next/font/google";
 import "./globals.css";
+import { Toaster } from '@/components/ui/sonner';
 
 const outfitFont = Outfit({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${outfitFont.className} antialiased`}
       >
+        <Toaster/>
          <SignedOut>
             {/* <SignInButton /> */}
           </SignedOut>

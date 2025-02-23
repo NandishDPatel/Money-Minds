@@ -31,10 +31,10 @@ export default function Page() {
               Welcome to Squid 🦑
             </h2>
 
-            <p className="mt-4 leading-relaxed text-white/90">
+            <h3 className="mt-4 leading-relaxed text-white/90">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
               nam dolorum aliquam, quibusdam aperiam voluptatum.
-            </p>
+            </h3>
           </div>
         </section>
 
@@ -63,10 +63,10 @@ export default function Page() {
                 Welcome to Squid 🦑
               </h1>
 
-              <p className="mt-4 leading-relaxed text-gray-500">
+              <h3 className="mt-4 leading-relaxed text-gray-500">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Eligendi nam dolorum aliquam, quibusdam aperiam voluptatum.
-              </p>
+              </h3>
             </div>
 
             <SignIn />

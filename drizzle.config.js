@@ -3,8 +3,8 @@ export default defineConfig({
   dialect: "postgresql",
   schema: "./utils/schema.js",
   // out: "./drizzle",
-  driver: "pglite",
+  // driver: "pglite",
   dbCredentials: {
-    url: process.env.NEXT_PUBLIC_DATABASE_URL
+    url: 'postgresql://finance-app_owner:npg_PHge96ikoltf@ep-shy-unit-a8tge3wu-pooler.eastus2.azure.neon.tech/finance-app?sslmode=require'
   },
 });

@@ -15,9 +15,9 @@ const Hero = () => {
           <span className="sm:block text-blue-500"> Save some money </span>
         </h1>
   
-        <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
+        <h3 className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
          Start creating your budget and save tons of money
-        </p>
+        </h3>
   
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Link

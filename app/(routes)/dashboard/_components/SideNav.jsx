@@ -34,16 +34,15 @@ const SideNav = () => {
       />
       <div className="mt-5">
         {menuItems.map((item, index) => (
-            <Link href={item.path}>
-          <h2
-            key={index}
-            className={`flex gap-2 items-center text-gray-500 font-medium p-5 cursor-pointer rounded-md mb-2 hover:text-primary hover:bg-blue-100 ${
-              path === item.path && "text-primary bg-blue-100"
-            }`}
-          >
-            <item.icon />
-            {item.name}
-          </h2>
+          <Link key={index} href={item.path}>
+            <h2
+              className={`flex gap-2 items-center text-gray-500 font-medium p-5 cursor-pointer rounded-md mb-2 hover:text-primary hover:bg-blue-100 ${
+                path === item.path && "text-primary bg-blue-100"
+              }`}
+            >
+              <item.icon />
+              {item.name}
+            </h2>
           </Link>
         ))}
       </div>
