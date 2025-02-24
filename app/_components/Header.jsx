@@ -1,5 +1,7 @@
-"use client";
-import { Button } from "@/components/ui/button";
+'use client';
+// import { Button } from "@/components/ui/button";
+import { Button } from "../../components/ui/button"; 
+
 import Image from "next/image";
 import React from "react";
 import { useUser, UserButton } from "@clerk/nextjs";

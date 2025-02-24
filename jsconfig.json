@@ -1,7 +1,16 @@
-{
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./*"]
-    }
-  }
-}
+// {
+//   "compilerOptions": {
+//     "paths": {
+//       "@/*": ["./*"]
+//     }
+//   }
+// }
+
+// {
+//   "compilerOptions": {
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/*": ["./*"]
+//     }
+//   }
+// }
