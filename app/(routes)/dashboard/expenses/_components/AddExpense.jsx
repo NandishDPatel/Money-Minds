@@ -21,6 +21,8 @@ function AddExpense({ budgetId, user,refreshData }) {
       })  
       .returning({ insertedId: Budgets.id });
     console.log(result);
+    setAmount('');
+    setName('');
     if (result) {
         refreshData();
       toast("New expense is added!");
@@ -33,6 +35,7 @@ function AddExpense({ budgetId, user,refreshData }) {
       <div className="mt-2">
         <h2 className="text-black font-medium my-1">Expense Name</h2>
         <Input
+        value={name}
           placeholder="e.g. Bedroom Decor"
           onChange={(e) => setName(e.target.value)}
         />
@@ -40,6 +43,7 @@ function AddExpense({ budgetId, user,refreshData }) {
       <div className="mt-2">
         <h2 className="text-black font-medium my-1">Expense Amount</h2>
         <Input
+        value={amount}
           placeholder="e.g. 1000$"
           onChange={(e) => setAmount(e.target.value)}
         />
