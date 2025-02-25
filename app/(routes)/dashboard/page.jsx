@@ -5,7 +5,7 @@ import { db } from "@/utils/dbConfig";
 import { Budgets, Expenses } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { desc, eq, getTableColumns, sql } from "drizzle-orm";
-
+import BarChartDashboard from "./_components/BarChartDashboard";
 const Dashboard = () => {
   const { user } = useUser();
   const [budgetList, setBudgetList] = useState([]);
@@ -36,6 +36,12 @@ const Dashboard = () => {
         Here's what happening with your money, Lets manage your expenses
       </p>
       <CardInfo budgetList={budgetList} />
+      <div className="grid grid-cols-1 md:grid-cols-3 mt-6">
+        <div className="md:col-span-2">
+          <BarChartDashboard budgetList={budgetList} />
+        </div>
+        <div>Other content</div>
+      </div>
     </div>
   );
 
