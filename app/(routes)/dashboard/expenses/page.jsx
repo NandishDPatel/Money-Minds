@@ -5,11 +5,14 @@ import { Budgets, Expenses } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { desc, eq, getTableColumns, sql } from "drizzle-orm";
 import ExpenseListTable from "./_components/ExpenseListTable";
+import { ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 function ShowExpenses() {
   const { user } = useUser();
   const [budgetList, setBudgetList] = useState([]);
   const [expensesList, setExpensesList] = useState([]);
+  const route = useRouter();
   useEffect(() => {
     user && getBudgetList();
   }, [user]);
@@ -48,7 +51,12 @@ function ShowExpenses() {
 
   return (
     <div className="p-5">
-      <h1 className="text-3xl font-bold">My Expenses</h1>
+      <h1 className="text-3xl font-bold">
+      <div className="flex gap-2 items-center">
+      <ArrowLeft className='cursor-pointer' onClick={() => route.replace("/dashboard")} />
+        My Expenses
+        </div>
+        </h1>
       <ExpenseListTable
         expensesList={expensesList}
         refreshData={getBudgetList}

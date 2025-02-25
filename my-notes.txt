@@ -1,1 +1,2 @@
 - when budget goes above the limit 
+- in my expenses first row is coming empty

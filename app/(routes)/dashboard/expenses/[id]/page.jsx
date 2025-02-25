@@ -8,7 +8,7 @@ import BudgetItem from "../../budgets/_components/BudgetItem";
 import AddExpense from "../_components/AddExpense";
 import ExpenseListTable from "../_components/ExpenseListTable";
 import EditBudget from "../_components/EditBudget";
-import { Edit, Pen, PenBox, Trash } from "lucide-react";
+import { ArrowLeft, Edit, Pen, PenBox, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
@@ -103,7 +103,10 @@ function ShowExpenses({ params }) {
   return (
     <div className="p-10">
       <h2 className="text-2xl font-bold flex justify-between">
-        Expenses
+        <div className="flex gap-2 items-center">
+        <ArrowLeft className='cursor-pointer' onClick={() => route.replace("/dashboard/budgets")} />
+        My Expenses
+        </div>
         <div className="flex gap-2 items-center">
         <EditBudget budgetInfo={budgetInfo} refreshData={()=>getBudgetInfo()}/>
         <AlertDialog>

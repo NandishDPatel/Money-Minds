@@ -3,14 +3,18 @@ import { Input } from "@/components/ui/input";
 import { db } from "@/utils/dbConfig";
 import { Budgets, Expenses } from "@/utils/schema";
 import { param } from "drizzle-orm";
+import { Loader } from "lucide-react";
 import moment from "moment";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
-function AddExpense({ budgetId, user,refreshData }) {
-  const [ name, setName ] = useState();
-  const [ amount, setAmount ] = useState();
+function AddExpense({ budgetId, user, refreshData }) {
+  const [name, setName] = useState();
+  const [amount, setAmount] = useState();
+  const [loading, setLoading] = useState(false);
+  // used to add new expense
   const addNewExpense = async () => {
+    setLoading(true);
     const result = await db
       .insert(Expenses)
       .values({
@@ -18,15 +22,17 @@ function AddExpense({ budgetId, user,refreshData }) {
         amount: amount,
         budgetId: budgetId,
         createdAt: moment().format("DD-MM-YYYY"),
-      })  
+      })
       .returning({ insertedId: Budgets.id });
     console.log(result);
-    setAmount('');
-    setName('');
+    setAmount("");
+    setName("");
     if (result) {
-        refreshData();
+      setLoading(false);
+      refreshData();
       toast("New expense is added!");
     }
+    setLoading(false);
   };
 
   return (
@@ -35,7 +41,7 @@ function AddExpense({ budgetId, user,refreshData }) {
       <div className="mt-2">
         <h2 className="text-black font-medium my-1">Expense Name</h2>
         <Input
-        value={name}
+          value={name}
           placeholder="e.g. Bedroom Decor"
           onChange={(e) => setName(e.target.value)}
         />
@@ -43,17 +49,17 @@ function AddExpense({ budgetId, user,refreshData }) {
       <div className="mt-2">
         <h2 className="text-black font-medium my-1">Expense Amount</h2>
         <Input
-        value={amount}
+          value={amount}
           placeholder="e.g. 1000$"
           onChange={(e) => setAmount(e.target.value)}
         />
       </div>
       <Button
-        disabled={!(name && amount)}
+        disabled={!(name && amount) || loading}
         onClick={() => addNewExpense()}
         className="mt-3 w-full"
       >
-        Add new expense
+        {loading ? <Loader className="animate-spin" /> : "Add new expense"}
       </Button>
     </div>
   );
