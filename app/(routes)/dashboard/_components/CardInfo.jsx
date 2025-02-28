@@ -14,7 +14,6 @@ function CardInfo({ budgetList }) {
     let totalSpend1 = 0;
 
     budgetList.forEach((budget) => {
-      console.log("Amount is:", budget.amount);
       totalBudget1 += Number(budget.amount);
       totalSpend1 += Number(budget.totalSpend);
     });

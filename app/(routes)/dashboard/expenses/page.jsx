@@ -29,7 +29,6 @@ function ShowExpenses() {
       .where(eq(Budgets.createdBy, user?.primaryEmailAddress?.emailAddress))
       .groupBy(Budgets.id)
       .orderBy(desc(Budgets.id));
-    // console.log("Budget List", result);
     setBudgetList(result);
     getAllExpenses();
   };
@@ -52,11 +51,14 @@ function ShowExpenses() {
   return (
     <div className="p-5">
       <h1 className="text-3xl font-bold">
-      <div className="flex gap-2 items-center">
-      <ArrowLeft className='cursor-pointer' onClick={() => route.replace("/dashboard")} />
-        My Expenses
+        <div className="flex gap-2 items-center">
+          <ArrowLeft
+            className="cursor-pointer"
+            onClick={() => route.replace("/dashboard")}
+          />
+          My Expenses
         </div>
-        </h1>
+      </h1>
       <ExpenseListTable
         expensesList={expensesList}
         refreshData={getBudgetList}

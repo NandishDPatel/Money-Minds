@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { db } from "@/utils/dbConfig";
 import { Budgets, Expenses } from "@/utils/schema";
-import { eq, getTableColumns, param } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { Loader } from "lucide-react";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
@@ -25,7 +25,7 @@ function AddExpense({ budgetId, user, refreshData }) {
         createdAt: moment().format("DD-MM-YYYY"),
       })
       .returning({ insertedId: Budgets.id });
-    console.log(result);
+
     setAmount("");
     setName("");
     if (result) {

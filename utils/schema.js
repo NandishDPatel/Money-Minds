@@ -1,4 +1,3 @@
-// schema.js
 import { integer, numeric, pgTable, serial, varchar } from "drizzle-orm/pg-core";
 
 export const Budgets = pgTable('budgets', {

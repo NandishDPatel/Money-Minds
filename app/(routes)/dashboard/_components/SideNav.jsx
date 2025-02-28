@@ -14,9 +14,6 @@ const SideNav = () => {
     console.log(path);
   }, [path]);
 
-  // Normalize the path by removing trailing slashes
-  const normalizedPath = path.endsWith("/") ? path.slice(0, -1) : path;
-
   const menuItems = [
     { id: 1, name: "Dashboard", icon: LayoutGrid, path: "/dashboard" },
     { id: 2, name: "Budget", icon: PiggyBank, path: "/dashboard/budgets" },

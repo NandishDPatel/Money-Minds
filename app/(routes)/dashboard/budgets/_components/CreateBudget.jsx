@@ -12,15 +12,15 @@ import {
 } from "@/components/ui/dialog";
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+
 import EmojiPicker from "emoji-picker-react";
 import { db } from "@/utils/dbConfig";
-import { Toaster } from "@/components/ui/sonner";
+
 import { toast } from "sonner";
 import { Budgets } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 
-const CreateBudget = ({refreshData}) => {
+const CreateBudget = ({ refreshData }) => {
   const [emojiIcon, setEmojiIcon] = useState("😀");
   const [openEmojiDialogue, setOpenEmojiDialogue] = useState(false);
   const [name, setName] = useState();
@@ -45,9 +45,9 @@ const CreateBudget = ({refreshData}) => {
   };
 
   const checkEnteredBudgetValue = (e) => {
-    if (e.target.value<0) {
+    if (e.target.value < 0) {
       toast("Budget can't be negative");
-    } else{
+    } else {
       setAmount(e.target.value);
     }
   };

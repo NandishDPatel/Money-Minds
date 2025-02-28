@@ -1,14 +1,7 @@
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/nextjs'
-import {  Outfit } from "next/font/google";
+import { ClerkProvider, SignedIn, SignedOut } from "@clerk/nextjs";
+import { Outfit } from "next/font/google";
 import "./globals.css";
-import { Toaster } from '@/components/ui/sonner';
-import { icons } from 'lucide-react';
+import { Toaster } from "@/components/ui/sonner";
 
 const outfitFont = Outfit({ subsets: ["latin"] });
 
@@ -20,20 +13,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body
-        className={`${outfitFont.className} antialiased`}
-      >
-        <Toaster/>
-         <SignedOut>
-            {/* <SignInButton /> */}
-          </SignedOut>
-          <SignedIn>
-            {/* <UserButton /> */}
-          </SignedIn>
-        {children}
-      </body>
-    </html>
+      <html lang="en">
+        <body className={`${outfitFont.className} antialiased`}>
+          <Toaster />
+          <SignedOut></SignedOut>
+          <SignedIn></SignedIn>
+          {children}
+        </body>
+      </html>
     </ClerkProvider>
   );
 }

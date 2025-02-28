@@ -1,29 +1,22 @@
-import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/navigation";
 
 function BudgetItem({ budget }) {
-  // console.log("Budget be like ============",budget);
-
   const router = useRouter();
   const handleClick = () => {
-    // console.log("Budget id", budget.id);
-    
     router.push(`/dashboard/expenses/${budget.id}`);
   };
 
   const calculatePercentage = () => {
     const percentage = (budget.totalSpend / budget.amount) * 100;
     return percentage.toFixed(2);
-  }
+  };
 
   return (
-    // <Link
-    //   href={`/dashboard/expenses/${budget?.id}`}
-    //   className="p-5 border rounded-lg hover:shadow-md cursor-pointer h-[170px]"
-    // >
-    <div onClick={handleClick} className="p-5 border rounded-lg hover:shadow-md cursor-pointer h-[170px]">
-
+    <div
+      onClick={handleClick}
+      className="p-5 border rounded-lg hover:shadow-md cursor-pointer h-[170px]"
+    >
       <div className="flex gap-2 items-center justify-between">
         <div className="flex gap-2 items-center">
           <h2 className="text-2xl p-2 bg-slat-100 rounded-full">
@@ -46,11 +39,13 @@ function BudgetItem({ budget }) {
           </h2>
         </div>
         <div className="w-full rounded-full bg-slate-400 h-2">
-          <div className="rounded-full bg-blue-600 h-2" style={{ width: `${calculatePercentage()}%` }}></div>
+          <div
+            className="rounded-full bg-blue-600 h-2"
+            style={{ width: `${calculatePercentage()}%` }}
+          ></div>
         </div>
       </div>
-      </div>
-    ///* </Link> */
+    </div>
   );
 }
 

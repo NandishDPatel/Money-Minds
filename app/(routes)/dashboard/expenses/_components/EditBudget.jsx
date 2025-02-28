@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { Button } from "@/components/ui/button";
 import { PenBox } from "lucide-react";
 import React, { useState } from "react";
@@ -20,30 +20,29 @@ import { eq } from "drizzle-orm";
 import { toast } from "sonner";
 import { Budgets } from "@/utils/schema";
 
-function EditBudget({budgetInfo,refreshData}) {
-    const [emojiIcon, setEmojiIcon] = useState(budgetInfo.icon);
-    const [openEmojiDialogue, setOpenEmojiDialogue] = useState(false);
-    const [name, setName] = useState(budgetInfo.name);
-    const [amount, setAmount] = useState(budgetInfo.amount);
-  
-    const { user } = useUser();
-  
-    const onUpdateBudget = async () => {
-      const result = await db
-        .update(Budgets)
-        .set({
-          name: name,
-          amount: amount,
-          icon: emojiIcon,
-        }).where(eq(Budgets.id,budgetInfo.id))
-        .returning();
-      if (result) {
-        refreshData();
-        toast("Budget updated successfully.");
-      }
-    };
+function EditBudget({ budgetInfo, refreshData }) {
+  const [emojiIcon, setEmojiIcon] = useState(budgetInfo.icon);
+  const [openEmojiDialogue, setOpenEmojiDialogue] = useState(false);
+  const [name, setName] = useState(budgetInfo.name);
+  const [amount, setAmount] = useState(budgetInfo.amount);
 
-    return (
+  const onUpdateBudget = async () => {
+    const result = await db
+      .update(Budgets)
+      .set({
+        name: name,
+        amount: amount,
+        icon: emojiIcon,
+      })
+      .where(eq(Budgets.id, budgetInfo.id))
+      .returning();
+    if (result) {
+      refreshData();
+      toast("Budget updated successfully.");
+    }
+  };
+
+  return (
     <div>
       <Dialog>
         <DialogTrigger asChild>

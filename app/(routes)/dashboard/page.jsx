@@ -11,7 +11,7 @@ import ExpenseListTable from "./expenses/_components/ExpenseListTable";
 const Dashboard = () => {
   const { user } = useUser();
   const [budgetList, setBudgetList] = useState([]);
-  const [expensesList,setExpensesList] = useState([]);
+  const [expensesList, setExpensesList] = useState([]);
   useEffect(() => {
     user && getBudgetList();
   }, [user]);
@@ -28,27 +28,26 @@ const Dashboard = () => {
       .where(eq(Budgets.createdBy, user?.primaryEmailAddress?.emailAddress))
       .groupBy(Budgets.id)
       .orderBy(desc(Budgets.id));
-    // console.log("Budget List", result);
+
     setBudgetList(result);
     getAllExpenses();
   };
-// used to get all expenses belong to user
+  // used to get all expenses belong to user
   const getAllExpenses = async () => {
     const result = await db
       .select({
         id: Expenses.id,
         name: Expenses.name,
         amount: Expenses.amount,
-        createdAt: Expenses.createdAt
+        createdAt: Expenses.createdAt,
       })
       .from(Budgets)
       .leftJoin(Expenses, eq(Budgets.id, Expenses.budgetId))
       .where(eq(Budgets.createdBy, user?.primaryEmailAddress?.emailAddress))
       .orderBy(desc(Expenses.id));
-      // console.log(result);
-      setExpensesList(result);
-    // return result;
-  };  
+
+    setExpensesList(result);
+  };
 
   return (
     <div className="p-8">
@@ -60,19 +59,20 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 mt-6 gap-5">
         <div className="md:col-span-2">
           <BarChartDashboard budgetList={budgetList} />
-          <ExpenseListTable expensesList={expensesList} refreshData={getBudgetList} />
+          <ExpenseListTable
+            expensesList={expensesList}
+            refreshData={getBudgetList}
+          />
         </div>
         <div className="grid gap-5">
           <h2 className="font-bold text-lg">Latest Budgets</h2>
-          {budgetList.map((budget,index) => (
-            <BudgetItem key={index} budget={budget}/>          
+          {budgetList.map((budget, index) => (
+            <BudgetItem key={index} budget={budget} />
           ))}
         </div>
       </div>
     </div>
   );
-
 };
-
 
 export default Dashboard;

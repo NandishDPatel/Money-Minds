@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 const DashboardLayout = ({ children }) => {
   const router = useRouter();
   const { user } = useUser();
-  
+
   useEffect(() => {
     user && checkUserBudgets();
   }, [user]);
@@ -21,7 +21,7 @@ const DashboardLayout = ({ children }) => {
       .select()
       .from(Budgets)
       .where(eq(Budgets.createdBy, user?.primaryEmailAddress?.emailAddress));
-    // console.log(result);
+
     if (result?.length == 0) {
       router.replace("/dashboard/budgets");
     }

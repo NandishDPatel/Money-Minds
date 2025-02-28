@@ -12,8 +12,6 @@ function ExpenseListTable({ expensesList, refreshData }) {
       .where(eq(Expenses.id, exp.id))
       .returning();
 
-    console.log(result);
-
     if (result) {
       toast("Expense is deleted successfully!");
       refreshData();

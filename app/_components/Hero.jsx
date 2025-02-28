@@ -26,7 +26,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-       <Image
+      <Image
         src="/hero-banner.png"
         alt="Banner Image"
         height={550}
