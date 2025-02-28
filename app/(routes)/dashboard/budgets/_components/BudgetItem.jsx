@@ -3,11 +3,11 @@ import React from "react";
 import { useRouter } from "next/navigation";
 
 function BudgetItem({ budget }) {
-  console.log("Budget be like ============",budget);
+  // console.log("Budget be like ============",budget);
 
   const router = useRouter();
   const handleClick = () => {
-    console.log("Budget id", budget.id);
+    // console.log("Budget id", budget.id);
     
     router.push(`/dashboard/expenses/${budget.id}`);
   };

@@ -44,6 +44,14 @@ const CreateBudget = ({refreshData}) => {
     }
   };
 
+  const checkEnteredBudgetValue = (e) => {
+    if (e.target.value<0) {
+      toast("Budget can't be negative");
+    } else{
+      setAmount(e.target.value);
+    }
+  };
+
   return (
     <div>
       <Dialog>
@@ -84,10 +92,15 @@ const CreateBudget = ({refreshData}) => {
                 </div>
                 <div className="mt-2">
                   <h2 className="text-black font-medium my-1">Budget Amount</h2>
-                  <Input
+                  {/* <Input
                     type="number"
                     placeholder="e.g. 5000$"
                     onChange={(e) => setAmount(e.target.value)}
+                  /> */}
+                  <Input
+                    type="number"
+                    placeholder="e.g. 5000$"
+                    onChange={(e) => checkEnteredBudgetValue(e)}
                   />
                 </div>
               </div>

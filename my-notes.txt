@@ -1,2 +1,12 @@
-- when budget goes above the limit 
-- in my expenses first row is coming empty
+- hydration error 
+
+- create read me file 
+
+- Commands to run:
+=> npm run dev
+=> npm run db:push
+=> npm run db:studio
+
+- make sure to make readme file and include all tech stack like shad cn, drizzle, orm, next js, lucid react
+
+- make sure to delete your credit card from Firebase

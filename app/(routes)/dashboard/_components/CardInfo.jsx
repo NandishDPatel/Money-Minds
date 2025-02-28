@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 function CardInfo({ budgetList }) {
   const [totalBudget, setTotalBudget] = useState(0);
   const [totalSpend, setTotalSpend] = useState(0);
-  const [totalBudgetCount, setTotalBudgetCount] = useState(0);
 
   useEffect(() => {
     budgetList && calculateCardInfo();
@@ -21,33 +20,32 @@ function CardInfo({ budgetList }) {
     });
     setTotalBudget(totalBudget1);
     setTotalSpend(totalSpend1);
-    // console.log(totalBudget1, totalSpend1, totalBudgetCount1);
   };
 
   return (
     <div>
       {budgetList?.length > 0 ? (
         <div className="mt-7 grid grid-cols-1 lg:grid-cols-3 gap-5">
-          <div className="p-7 border rounded-lg flex items-center justify-between">
+          <div className="p-7 border rounded-lg flex items-center justify-between border-b-4">
             <div>
-              <h2 className="text-sm">Total Budget</h2>
-              <h2 className="font-bold text-3xl">{totalBudget}</h2>
+              <h2 className="text-lg">Total Budget</h2>
+              <h2 className="font-bold text-3xl">${totalBudget}</h2>
             </div>
-            <PiggyBank className="bg-blue-600 p-3 h-12 w-12 rounded-full text-white" />
+            <PiggyBank className="bg-green-700 p-3 h-12 w-12 rounded-full text-white" />
           </div>
-          <div className="p-7 border rounded-lg flex items-center justify-between">
+          <div className="p-7 border rounded-lg flex items-center justify-between border-b-4">
             <div>
-              <h2 className="text-sm">Total Spend</h2>
-              <h2 className="font-bold text-3xl">{totalSpend}</h2>
+              <h2 className="text-xl">Total Spend</h2>
+              <h2 className="font-bold text-3xl">${totalSpend}</h2>
             </div>
-            <ReceiptText className="bg-blue-600 p-3 h-12 w-12 rounded-full text-white" />
+            <ReceiptText className="bg-red-700 p-3 h-12 w-12 rounded-full text-white" />
           </div>
-          <div className="p-7 border rounded-lg flex items-center justify-between">
+          <div className="p-7 border rounded-lg flex items-center justify-between border-b-4">
             <div>
-              <h2 className="text-sm">No. of Budget</h2>
+              <h2 className="text-lg">No. of Budget</h2>
               <h2 className="font-bold text-3xl">{budgetList?.length}</h2>
             </div>
-            <Wallet className="bg-blue-600 p-3 h-12 w-12 rounded-full text-white" />
+            <Wallet className="bg-black p-3 h-12 w-12 rounded-full text-white" />
           </div>
         </div>
       ) : (

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { UserButton } from "@clerk/nextjs";
-import { LayoutGrid, PiggyBank, ReceiptText, ShieldCheck } from "lucide-react";
+import { CircleHelp, LayoutGrid, PiggyBank, ReceiptText } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -21,7 +21,7 @@ const SideNav = () => {
     { id: 1, name: "Dashboard", icon: LayoutGrid, path: "/dashboard" },
     { id: 2, name: "Budget", icon: PiggyBank, path: "/dashboard/budgets" },
     { id: 3, name: "Expenses", icon: ReceiptText, path: "/dashboard/expenses" },
-    { id: 4, name: "Shield", icon: ShieldCheck, path: "/dashboard/upgrade" },
+    { id: 4, name: "About", icon: CircleHelp, path: "/dashboard/about" },
   ];
 
   return (
