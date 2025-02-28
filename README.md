@@ -19,28 +19,28 @@ The backend is powered by Drizzle ORM, ensuring smooth and type-safe database in
 ## Project Photos
 
 - Dashboard without Login
-[![Landing page](app\images\01-dashboard.png)](https://katherineoelsner.com/)
+[![Landing page](app/images/01-dashboard.png)](https://katherineoelsner.com/)
 
 - Sign Up/Login page
-[![Login/Sign Up page](app\images\02-signin-signup.png)](https://katherineoelsner.com/)
+[![Login/Sign Up page](app/images/02-signin-signup.png)](https://katherineoelsner.com/)
 
 - Dashboard after Login
-[![Dashboard](app\images\03-dashboard-after-login.png)](https://katherineoelsner.com/)
+[![Dashboard](app/images/03-dashboard-after-login.png)](https://katherineoelsner.com/)
 
 - Budget page
-[![Budget page](app\images\04-budgets.png)](https://katherineoelsner.com/)
+[![Budget page](app/images/04-budgets.png)](https://katherineoelsner.com/)
 
 - Expenses page
-[![Expenses page](app\images\05-expenses.png)](https://katherineoelsner.com/)
+[![Expenses page](app/images/05-expenses.png)](https://katherineoelsner.com/)
 
 - About page
-[![About page](app\images\06-about.png)](https://katherineoelsner.com/)
+[![About page](app/images/06-about.png)](https://katherineoelsner.com/)
 
 - Add Expenses page
-[![Add Expenses page](app\images\07-add-expense.png)](https://katherineoelsner.com/)
+[![Add Expenses page](app/images/07-add-expense.png)](https://katherineoelsner.com/)
 
 - Update page
-[![Update page](app\images\08-update-budget.png)](https://katherineoelsner.com/)
+[![Update page](app/images/08-update-budget.png)](https://katherineoelsner.com/)
 
 ## Run Locally
 
